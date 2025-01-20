@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+    body {
+        @apply font-jakarta text-base text-black leading-5 text-[1rem] font-normal;
+    }
+}
+
+@layer components {
+    .container {
+        @apply max-w-1480 px-[20px] mx-auto w-full;
+    }
+
+    .image {
+        @apply max-w-full size-full block object-cover hover: scale-110 transition-all duration-300;
+    }
+}
