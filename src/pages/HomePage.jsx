@@ -34,7 +34,7 @@ function HomePage(props) {
     }, [])
 
     return (
-        <>
+        <div className='main_home'>
             <Banner />
             <Shipping />
             <OurCategoriesCenter />
@@ -42,7 +42,7 @@ function HomePage(props) {
             {/* <OurCategories /> */}
             <BannerMain />
             <NewArrivalsProduct />
-        </>
+        </div>
     );
 }
 

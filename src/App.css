@@ -179,6 +179,37 @@ body {
   /* 2 */
 }
 
+/* App.css */
+
+/* Chế độ sáng */
+.main_home {
+  background-color: #ffffff;
+  color: #000000;
+  transition: all 0.3s ease;
+}
+
+/* Chế độ tối */
+.main_home.dark-mode {
+  background-color: #1e1e1e;
+  color: #ffffff;
+}
+
+.toggle-theme-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit; /* Để kế thừa màu từ chế độ sáng/tối */
+  transition: transform 0.2s ease;
+}
+
+.toggle-theme-btn:hover {
+  transform: scale(1.1);
+}
+
+
+
+
 /*
   1. Add the correct height in Firefox.
   2. Correct the inheritance of border color in Firefox. (https://bugzilla.mozilla.org/show_bug.cgi?id=190655)
@@ -1335,6 +1366,12 @@ body {
 .bg-gray {
   --tw-bg-opacity: 1;
   background-color: rgb(235 235 233 / var(--tw-bg-opacity));
+}
+
+.bg-gray-shipping{
+  --tw-bg-opacity: 1;
+  background-color: rgb(235 235 233 / var(--tw-bg-opacity));
+  color: #000;
 }
 
 .bg-red-600 {

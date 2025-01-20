@@ -3,7 +3,7 @@ import React from 'react';
 function Shipping(props) {
     return (
         <>
-            <section className="bg-gray">
+            <section className="bg-gray-shipping">
                 <div className="container">
                     <ul className="grid grid-cols-2 lg:grid-cols-4 gap-5 items-center py-14">
                         <li className="flex items-center lg:justify-center lg:flex-1 gap-[15px]">

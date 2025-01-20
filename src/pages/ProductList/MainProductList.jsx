@@ -40,7 +40,7 @@ function MainProductList(props) {
 
     const listCategory = useSelector((state) => state.categorySlice.ourCategories);
 
-
+    
     return (
         <section className="pt-12 pb-12 bg-gray">
             <div className="container">
