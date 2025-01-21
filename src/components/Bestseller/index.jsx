@@ -8,7 +8,7 @@ function Bestseller() {
     const bestSeller = useSelector((state) => state.productSlice.bestSeller);
     return (
         <>
-            <section className="mt-9 lg:mt-24 pt-16 pb-8 bg-gray">
+            <section className="mt-9 lg:mt-24 pt-16 pb-8 bg-gray" data-original-class="bg-gray">
                 <div className="container">
                     <div className="lg:flex justify-between items-end">
                         <div>
@@ -19,7 +19,7 @@ function Bestseller() {
                         </div>
                         <Link
                             to={"/product"}
-                            className="mt-6 lg:mt-0 h-9 border border-black px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px] hover:bg-black hover:text-white transition-all duration-300"
+                            className="view_all mt-6 lg:mt-0 h-9 border border-black px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px]"
                         >
                             View All
                         </Link>

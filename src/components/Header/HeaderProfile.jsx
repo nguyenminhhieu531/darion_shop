@@ -16,21 +16,32 @@ function HeaderProfile(props) {
         return localStorage.getItem("theme") === "dark";
     });
 
-    // Thay đổi class của body khi bật/tắt dark mode
     useEffect(() => {
-        const mainElement = document.querySelector(".main_home"); // Tìm phần tử có class main
-        const grayElements = document.querySelectorAll('.bg-gray');
-        if (mainElement) {
-            if (isDarkMode) {
-                mainElement.classList.add("dark-mode");
-                localStorage.setItem("theme", "dark");
-                grayElements.forEach((el) => {
-                    el.classList.remove('bg-gray');
-                });
-            } else {
-                mainElement.classList.remove("dark-mode");
-                localStorage.setItem("theme", "light");
-            }
+        // Lấy phần tử `.main`
+        const mainElement = document.querySelector('.main_home');
+        const viewAllElement = document.querySelector('.view_all');
+
+        if (isDarkMode) {
+            // Thêm class 'dark-mode' vào `.main`
+            mainElement.classList.add("dark-mode");
+            viewAllElement.classList.add("view_all");
+            localStorage.setItem("theme", "dark");
+
+            // Loại bỏ class 'bg-gray' khỏi các phần tử
+            const grayElements = document.querySelectorAll('.bg-gray');
+            grayElements.forEach((el) => {
+                el.classList.remove('bg-gray');
+            });
+        } else {
+            // Xóa class 'dark-mode' khỏi `.main`
+            mainElement.classList.remove("dark-mode");
+            localStorage.setItem("theme", "light");
+
+            // Thêm lại class 'bg-gray' vào các phần tử cần thiết
+            const grayElements = document.querySelectorAll('[data-original-class~="bg-gray"]');
+            grayElements.forEach((el) => {
+                el.classList.add('bg-gray');
+            });
         }
     }, [isDarkMode]);
 
@@ -70,7 +81,7 @@ function HeaderProfile(props) {
                 <li style={{ listStyle: "none" }}>
                     <div className="App">
                         <button onClick={toggleDarkMode} className="toggle-theme-btn">
-                            <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} style={{fontSize: "21px"}}/>
+                            <FontAwesomeIcon icon={isDarkMode ? faSun : faMoon} style={{ fontSize: "21px" }} />
                         </button>
                     </div>
                 </li>

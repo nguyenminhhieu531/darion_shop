@@ -194,17 +194,10 @@ body {
   color: #ffffff;
 }
 
-.toggle-theme-btn {
-  font-size: 24px;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: inherit; /* Để kế thừa màu từ chế độ sáng/tối */
-  transition: transform 0.2s ease;
-}
 
-.toggle-theme-btn:hover {
-  transform: scale(1.1);
+.view_all{
+  background-color: #fff;
+  color: #000;
 }
 
 
@@ -1368,7 +1361,7 @@ body {
   background-color: rgb(235 235 233 / var(--tw-bg-opacity));
 }
 
-.bg-gray-shipping{
+.bg-gray-shipping {
   --tw-bg-opacity: 1;
   background-color: rgb(235 235 233 / var(--tw-bg-opacity));
   color: #000;

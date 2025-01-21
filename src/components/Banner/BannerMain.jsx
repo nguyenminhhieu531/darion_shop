@@ -3,7 +3,7 @@ import React from 'react';
 function BannerMain(props) {
     return (
         <>
-            <section className="pt-20 pb-20 mt-20 mb-9 lg:mb-20 bg-gray">
+            <section className="pt-20 pb-20 mt-20 mb-9 lg:mb-20 bg-gray" data-original-class="bg-gray">
                 <div className="container">
                     <div className="lg:flex items-center justify-between">
                         <div>
@@ -15,7 +15,7 @@ function BannerMain(props) {
                             </h2>
                             <a
                                 href="#none"
-                                className="h-9 border border-black px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px] hover:bg-black hover:text-white transition-all duration-300"
+                                className="view_all h-9 border border-black px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px]"
                             >
                                 View All
                             </a>
