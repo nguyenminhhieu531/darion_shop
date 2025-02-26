@@ -18,7 +18,7 @@ function NewArrivalsProduct() {
                         </div>
                         <Link
                             to={"/product"}
-                            className="view_all mt-6 lg:mt-0 h-9 border border-black px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px]"
+                            className="mt-6 lg:mt-0 h-9 border bg-white border-black px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px]"
                         >
                             View All
                         </Link>

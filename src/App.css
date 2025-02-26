@@ -194,10 +194,18 @@ body {
   color: #ffffff;
 }
 
+.toggle-theme-btn {
+  font-size: 24px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  color: inherit;
+  /* Để kế thừa màu từ chế độ sáng/tối */
+  transition: transform 0.2s ease;
+}
 
-.view_all{
-  background-color: #fff;
-  color: #000;
+.toggle-theme-btn:hover {
+  transform: scale(1.1);
 }
 
 

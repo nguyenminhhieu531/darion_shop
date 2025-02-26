@@ -19,29 +19,29 @@ function HeaderProfile(props) {
     useEffect(() => {
         // Lấy phần tử `.main`
         const mainElement = document.querySelector('.main_home');
-        const viewAllElement = document.querySelector('.view_all');
 
-        if (isDarkMode) {
-            // Thêm class 'dark-mode' vào `.main`
-            mainElement.classList.add("dark-mode");
-            viewAllElement.classList.add("view_all");
-            localStorage.setItem("theme", "dark");
+        if (mainElement) {
+            if (isDarkMode) {
+                // Thêm class 'dark-mode' vào `.main`
+                mainElement.classList.add("dark-mode");
+                localStorage.setItem("theme", "dark");
 
-            // Loại bỏ class 'bg-gray' khỏi các phần tử
-            const grayElements = document.querySelectorAll('.bg-gray');
-            grayElements.forEach((el) => {
-                el.classList.remove('bg-gray');
-            });
-        } else {
-            // Xóa class 'dark-mode' khỏi `.main`
-            mainElement.classList.remove("dark-mode");
-            localStorage.setItem("theme", "light");
+                // Loại bỏ class 'bg-gray' khỏi các phần tử
+                const grayElements = document.querySelectorAll('.bg-gray');
+                grayElements.forEach((el) => {
+                    el.classList.remove('bg-gray');
+                });
+            } else {
+                // Xóa class 'dark-mode' khỏi `.main`
+                mainElement.classList.remove("dark-mode");
+                localStorage.setItem("theme", "light");
 
-            // Thêm lại class 'bg-gray' vào các phần tử cần thiết
-            const grayElements = document.querySelectorAll('[data-original-class~="bg-gray"]');
-            grayElements.forEach((el) => {
-                el.classList.add('bg-gray');
-            });
+                // Thêm lại class 'bg-gray' vào các phần tử cần thiết
+                const grayElements = document.querySelectorAll('[data-original-class~="bg-gray"]');
+                grayElements.forEach((el) => {
+                    el.classList.add('bg-gray');
+                });
+            }
         }
     }, [isDarkMode]);
 

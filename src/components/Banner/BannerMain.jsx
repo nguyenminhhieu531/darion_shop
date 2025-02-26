@@ -15,7 +15,7 @@ function BannerMain(props) {
                             </h2>
                             <a
                                 href="#none"
-                                className="view_all h-9 border border-black px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px]"
+                                className="h-9 border border-black px-7 inline-flex items-center font-semibold text-black rounded-full text-[15px] hover:bg-black hover:text-white transition-all duration-300"
                             >
                                 View All
                             </a>

@@ -3,13 +3,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import emailjs from 'emailjs-com';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
-import  clearCart  from '../store/features/cartSlice';
+import clearCart from '../store/features/cartSlice';
 
 function OrderPage() {
     // const dispatch = useDispatch();
     const cartItems = useSelector((state) => state.cartSlice.cartItems);
     console.log(cartItems);
-    
+
 
     const [formData, setFormData] = useState({
         email: '',
@@ -90,7 +90,6 @@ function OrderPage() {
     const handlePayNow = async () => {
         if (!validateForm()) return;
 
-
         // Tạo nội dung email
         const emailData = {
             name: `${formData.firstName} ${formData.lastName}`,
@@ -116,8 +115,7 @@ function OrderPage() {
                 emailData,  // Dữ liệu email
                 '-ukl6JeuBmXsF5uKL' // User ID của bạn trong EmailJS
             );
-           
-            toast.success('Đặt hàng thành công');                  
+            toast.success('Đặt hàng thành công');
         } catch (error) {
             console.log(error);
             toast.error('Đặt hàng thất bại! Mời bạn mua hàng lại!');
