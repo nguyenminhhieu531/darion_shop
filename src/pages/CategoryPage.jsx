@@ -28,9 +28,9 @@ function CategoryPage(props) {
 
     return (
         <section className=" pb-12 bg-gray">
-            <div className="container mt-5">
+            <div className="container">
                 <div className="lg:grid grid-cols-4">
-                    <div className="col-span-4 mt-6 lg:mt-0">
+                    <div className="col-span-4 mt-6 lg:mt-6">
                         <div className="py-2 px-3 border rounded-full cursor-pointer w-max">
                             <select name="" id="" className="w-full filter_select text-sm">
                                 <option value="">New Latest</option>
