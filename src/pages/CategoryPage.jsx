@@ -28,13 +28,6 @@ function CategoryPage(props) {
 
     return (
         <section className=" pb-12 bg-gray">
-            <div className="breadcrumb">
-                <Link to={"/"}>
-                    <i className="icon fa fa-home" />
-                </Link>
-                <span className="mx-2 mb-0">/</span>
-                <span className=""> {categoryName}</span>
-            </div>
             <div className="container mt-5">
                 <div className="lg:grid grid-cols-4">
                     <div className="col-span-4 mt-6 lg:mt-0">
