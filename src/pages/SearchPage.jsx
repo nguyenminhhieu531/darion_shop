@@ -14,12 +14,8 @@ function SearchPage(props) {
         <>
             {
                 productSearch.length > 0 ?
-
                     <section className="pb-12 bg-gray">
                         <div div className="container">
-                            {/* <nav className="text-sm text-gray-500 mb-6">
-                                <Link to={"/"} href="#" className="hover:underline"><i class="fa fa-home text-blue-500 text-2xl"></i> Home</Link> &gt; <span>Search</span>
-                            </nav> */}
                             <div className="lg:grid grid-cols-4">
                                 <div className="col-span-4 mt-6 lg:mt-6">
                                     <div className="py-2 px-3 border rounded-full cursor-pointer w-max">
