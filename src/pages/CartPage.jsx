@@ -144,15 +144,7 @@ function CartPage() {
             <section className="pt-12 pb-12" />
         </> :
             <>
-                <div className="breadcrumb">
-                    <Link to={"/"}>
-                        <i className="icon fa fa-home" />
-                    </Link>
-                    <span className="mx-2 mb-0">/</span>
-                    <span className="">Shopping Cart</span>
-                </div>
                 <div className="text-center mt-5">
-
                     <h1 className="text-xl font-semibold mb-4">Bạn chưa chọn sản phẩm.</h1>
                     <div className="flex justify-center mb-4">
                         <img src="../assets/images/cart.png" alt="Sad shopping bag with a tear drop" className="w-40 h-40" />
