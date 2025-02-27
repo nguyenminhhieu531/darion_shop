@@ -14,21 +14,10 @@ function SearchPage(props) {
         <>
             {
                 productSearch.length > 0 ?
-
                     <section className="pb-12 bg-gray">
-                        <div className="breadcrumb">
-                            <Link to={"/"}>
-                                <i className="icon fa fa-home" />
-                            </Link>
-                            <span className="mx-2 mb-0">/</span>
-                            <span className="">Search</span>
-                        </div>
-                        <div div className="container mt-5" >
-                            {/* <nav className="text-sm text-gray-500 mb-6">
-                                <Link to={"/"} href="#" className="hover:underline"><i class="fa fa-home text-blue-500 text-2xl"></i> Home</Link> &gt; <span>Search</span>
-                            </nav> */}
+                        <div div className="container" >
                             <div className="lg:grid grid-cols-4">
-                                <div className="col-span-4 mt-6 lg:mt-0">
+                                <div className="col-span-4 mt-6 lg:mt-6">
                                     <div className="py-2 px-3 border rounded-full cursor-pointer w-max">
                                         <select name="" id="" className="w-full filter_select text-sm">
                                             <option value="">New Latest</option>
