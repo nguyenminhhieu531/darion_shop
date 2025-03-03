@@ -151,10 +151,6 @@ function BlogDetail() {
                     </aside>
                 </main>
             </div>
-            <section className="bg-white p-8 rounded shadow mt-8">
-                <h3 className="text-xl font-bold mb-4">Bình luận</h3>
-                {/* Add comments here */}
-            </section>
         </main>
     );
 }
