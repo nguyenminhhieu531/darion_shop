@@ -82,6 +82,14 @@ function ContactPage() {
         <>
             {/* Hello world */}
             <div className="container mx-auto px-4 mt-4">
+                <ul className="flex gap-2 items-center py-4">
+                    <li>
+                        <Link to={"/"} className="text-sm"><i className="icon fa fa-home" /> /</Link>
+                    </li>
+                    <li>
+                        <span className="text-sm">Contact /</span>
+                    </li>
+                </ul>
                 <main className="flex flex-wrap py-8">
                     <section className="w-full lg:w-2/3 pr-4">
                         <h3 className="text-lg font-bold mb-4">
