@@ -18,7 +18,7 @@ function WishListPage(props) {
                                     <Link to={"/"} className="text-sm"><i className="icon fa fa-home" /> /</Link>
                                 </li>
                                 <li>
-                                    <span className="text-sm">Wish-List /</span>
+                                    <span className="text-sm">Wish-List</span>
                                 </li>
                             </ul>
                             <div className="lg:grid grid-cols-4">
