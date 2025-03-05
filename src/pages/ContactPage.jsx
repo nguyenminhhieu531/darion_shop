@@ -87,7 +87,7 @@ function ContactPage() {
                         <Link to={"/"} className="text-sm"><i className="icon fa fa-home" /> /</Link>
                     </li>
                     <li>
-                        <span className="text-sm">Contact /</span>
+                        <span className="text-sm">Contact</span>
                     </li>
                 </ul>
                 <main className="flex flex-wrap py-8">
