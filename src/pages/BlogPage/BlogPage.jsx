@@ -43,7 +43,7 @@ function BlogPage(props) {
                                     <Link to={"/"} className="text-sm"><i className="icon fa fa-home" /> /</Link>
                                 </li>
                                 <li>
-                                    <span className="text-sm">Blog /</span>
+                                    <span className="text-sm">Blog</span>
                                 </li>
                             </ul>
                             <div className="lg:grid grid-cols-5">
