@@ -13,6 +13,14 @@ function WishListPage(props) {
                 wishList.length > 0 ?
                     <section className="pb-12 bg-gray">
                         <div div className="container" >
+                            <ul className="flex gap-2 items-center py-4">
+                                <li>
+                                    <Link to={"/"} className="text-sm"><i className="icon fa fa-home" /> /</Link>
+                                </li>
+                                <li>
+                                    <span className="text-sm">Wish-List /</span>
+                                </li>
+                            </ul>
                             <div className="lg:grid grid-cols-4">
                                 <div className="col-span-4 mt-6 lg:mt-0">
                                     <ul className="mt-6 grid grid-cols-2 gap-4 gap-x-6 gap-y-10 sm:grid-cols-2 lg:grid-cols-4 xl:gap-x-8">
