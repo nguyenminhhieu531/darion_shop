@@ -12,13 +12,6 @@ function WishListPage(props) {
             {
                 wishList.length > 0 ?
                     <section className="pb-12 bg-gray">
-                        <div className="breadcrumb">
-                            <Link to={"/"}>
-                                <i className="icon fa fa-home" />
-                            </Link>
-                            <span className="mx-2 mb-0">/</span>
-                            <span className="">Wish-List</span>
-                        </div>
                         <div div className="container mt-5" >
                             <div className="lg:grid grid-cols-4">
                                 <div className="col-span-4 mt-6 lg:mt-0">
