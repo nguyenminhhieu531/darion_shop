@@ -1,1 +1,3 @@
+User-agent: *
+Allow: /
 Sitemap: https://darion-shop.vercel.app/sitemap.xml
