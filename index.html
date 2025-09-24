@@ -1,22 +1,74 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="google-site-verification" content="qqnQPzVR-Y6PQ7FyCKqMsQY_OMvflRj5jULF42wvQVE" />
-  <meta name="google-site-verification" content="SLUtx1EjDEJ1-sCEV65OecB14o8iGz0Ao7IF8bn_nok" />
-  <title>DARION SHOP</title>
-  <link href="./output.css" rel="stylesheet" />
-  <link rel="icon" href="/favicon.png" sizes="32x32">
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap"
-    rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" />
+  <title>Nút Tỏa</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      background: #f9f9f9;
+    }
+
+    .btn-wrap {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      margin: 20px;
+    }
+
+    /* Vòng tỏa */
+    .btn-wrap::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      background: rgba(0, 123, 255, 0.3); /* màu tỏa */
+      transform: translate(-50%, -50%);
+      animation: pulse 2s infinite;
+    }
+
+    /* Nút chính */
+    .btn {
+      position: relative;
+      width: 80px;
+      height: 80px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: #0084ff; /* màu nút */
+      color: white;
+      font-weight: bold;
+      font-family: sans-serif;
+      z-index: 1;
+    }
+
+    /* Hiệu ứng tỏa */
+    @keyframes pulse {
+      0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 0.6;
+      }
+      100% {
+        transform: translate(-50%, -50%) scale(1.8);
+        opacity: 0;
+      }
+    }
+  </style>
 </head>
-
 <body>
-  <div id="root"></div>
-  <script type="module" src="/src/main.jsx"></script>
+  <div class="btn-wrap">
+    <div class="btn">Zalo</div>
+  </div>
+  <div class="btn-wrap" style="--color:#ff4d4d;">
+    <div class="btn" style="background:#ff4d4d;">📞</div>
+  </div>
 </body>
-
 </html>
