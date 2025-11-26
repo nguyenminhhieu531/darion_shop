@@ -11,7 +11,7 @@ function BlogPage(props) {
     const limit = 10; // Số sản phẩm mỗi trang
     const loadData = async () => {
         try {
-            const res = await axios(`https://apiforlearning.zendvn.com/public/api/v2/categories_news/5/articles?limit=${limit}&page=${page}`);
+            const res = await axios(`https://apiforlearning.zendvn.com/api/v2/categories_news/5/articles?limit=${limit}&page=${page}`);
             console.log(res);
             if (res.status === 200) {
                 setNewBlog(res.data.data);
@@ -127,3 +127,4 @@ function BlogPage(props) {
     )
 }
 export default BlogPage;
+
