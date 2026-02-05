@@ -2,8 +2,6 @@ import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import emailjs from 'emailjs-com';
 import toast from 'react-hot-toast';
-import { Link } from 'react-router-dom';
-import clearCart from '../store/features/cartSlice';
 import axios from 'axios';
 
 function OrderPage() {
@@ -132,7 +130,6 @@ function OrderPage() {
     const handlePay = async () => {
         if (!validateForm()) return;
 
-
         // Tạo nội dung email
         const emailData = {
             name: `${formData.firstName} ${formData.lastName}`,
@@ -164,7 +161,6 @@ function OrderPage() {
             toast.error('Đặt hàng thất bại! Mời bạn mua hàng lại!');
         }
 
-
         try {
             const res = await axios.post(
                 'https://nodejs-vnpay-d1m1.onrender.com/order/create_payment_url',
@@ -186,6 +182,18 @@ function OrderPage() {
 
             // 🔥 CHUYỂN TRANG – CHUẨN VNPay / Shopee
             window.location.href = paymentUrl;
+            useEffect(() => {
+                const params = new URLSearchParams(window.location.search);
+                const payment = params.get("payment");
+
+                if (payment === "success") {
+                    toast.success("🎉 Thanh toán thành công!");
+                }
+
+                if (payment === "fail") {
+                    toast.error("❌ Thanh toán thất bại!");
+                }
+            }, []);
         } catch (err) {
             console.error('PAY ERROR:', err);
             alert('Có lỗi khi thanh toán');
@@ -319,5 +327,3 @@ function OrderPage() {
 }
 
 export default OrderPage;
-
-
