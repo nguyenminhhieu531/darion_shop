@@ -14,12 +14,12 @@ function App() {
     if (payment === 'success') {
       localStorage.removeItem("cartItemsStorage");
       toast.success('Thanh toán thành công');
-      window.history.replaceState({}, '', '/');
+      window.history.replaceState({}, '', '/order');
     }
 
     if (payment === 'fail') {
       toast.error('Thanh toán thất bại ❌');
-      window.history.replaceState({}, '', '/');
+      window.history.replaceState({}, '', '/order');
     }
   }, []);
   return (
