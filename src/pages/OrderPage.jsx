@@ -167,7 +167,7 @@ function OrderPage() {
 
         try {
             const res = await axios.post(
-                'http://localhost:8888/order/create_payment_url',
+                'https://nodejs-vnpay-d1m1.onrender.com/order/create_payment_url',
                 {
                     amount: 100000,
                     language: 'vn',
