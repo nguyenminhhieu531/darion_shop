@@ -7,11 +7,8 @@ import { useEffect } from 'react'
 import { useDispatch } from 'react-redux';
 import clearCart from '../store/features/cartSlice';
 
-
 function App() {
-
   const dispatch = useDispatch();
-
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const payment = params.get('payment');
