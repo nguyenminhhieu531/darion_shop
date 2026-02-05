@@ -4,10 +4,10 @@ import { RouterProvider } from 'react-router-dom'
 import router from './routers/routers'
 import toast, { Toaster } from 'react-hot-toast'
 import { useEffect } from 'react'
-const navigate = useNavigate();
+import { Link, useNavigate } from 'react-router-dom';
 
 function App() {
-
+  const navigate = useNavigate();
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const payment = params.get('payment');
