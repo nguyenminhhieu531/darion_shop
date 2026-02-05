@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import emailjs from 'emailjs-com';
-import toast from 'react-hot-toast';
 import axios from 'axios';
 
 function OrderPage() {
@@ -182,18 +181,7 @@ function OrderPage() {
 
             // 🔥 CHUYỂN TRANG – CHUẨN VNPay / Shopee
             window.location.href = paymentUrl;
-            useEffect(() => {
-                const params = new URLSearchParams(window.location.search);
-                const payment = params.get("payment");
-
-                if (payment === "success") {
-                    toast.success("🎉 Thanh toán thành công!");
-                }
-
-                if (payment === "fail") {
-                    toast.error("❌ Thanh toán thất bại!");
-                }
-            }, []);
+    
         } catch (err) {
             console.error('PAY ERROR:', err);
             alert('Có lỗi khi thanh toán');
@@ -327,3 +315,4 @@ function OrderPage() {
 }
 
 export default OrderPage;
+
