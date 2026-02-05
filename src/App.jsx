@@ -17,7 +17,13 @@ function App() {
     if (payment === "fail") {
       toast.error("❌ Thanh toán thất bại!");
     }
+
+    // 🔥 QUAN TRỌNG: xóa ?payment khỏi URL để tránh hiện lại
+    if (payment) {
+      window.history.replaceState({}, document.title, window.location.pathname);
+    }
   }, []);
+
   return (
     <>
       <Toaster
