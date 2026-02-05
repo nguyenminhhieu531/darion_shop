@@ -4,25 +4,8 @@ import { RouterProvider } from 'react-router-dom'
 import router from './routers/routers'
 import toast, { Toaster } from 'react-hot-toast'
 import { useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom';
 
 function App() {
-  const navigate = useNavigate();
-  useEffect(() => {
-    const params = new URLSearchParams(window.location.search);
-    const payment = params.get('payment');
-
-    if (payment === 'success') {
-      localStorage.removeItem("cartItemsStorage");
-      toast.success('Thanh toán thành công');
-      navigate("/order");
-    }
-
-    if (payment === 'fail') {
-      toast.error('Thanh toán thất bại ❌');
-      navigate("/order");
-    }
-  }, []);
   return (
     <>
       <Toaster
