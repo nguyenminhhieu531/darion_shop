@@ -4,24 +4,37 @@ import { RouterProvider } from 'react-router-dom'
 import router from './routers/routers'
 import toast, { Toaster } from 'react-hot-toast'
 import { useEffect } from 'react'
+import { useDispatch } from 'react-redux';
+import clearCart from '../store/features/cartSlice';
+
 
 function App() {
+
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const params = new URLSearchParams(window.location.search);
     const payment = params.get('payment');
 
     if (payment === 'success') {
-      localStorage.removeItem("cartItemsStorage");
-      toast.success('Thanh toán thành công');
-      window.history.replaceState({}, '', '/order');
+      // ✅ XÓA REDUX TRƯỚC
+      dispatch(clearCart());
+
+      // ✅ XÓA LOCALSTORAGE
+      localStorage.removeItem('cartItemsStorage');
+
+      toast.success('Thanh toán thành công 🎉');
+
+      // ✅ XÓA QUERY
+      window.history.replaceState({}, document.title, '/order');
     }
 
     if (payment === 'fail') {
       toast.error('Thanh toán thất bại ❌');
-      window.history.replaceState({}, '', '/order');
+      window.history.replaceState({}, document.title, '/order');
     }
   }, []);
+
   return (
     <>
       <Toaster
