@@ -5,7 +5,6 @@ import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import clearCart from '../store/features/cartSlice';
 import axios from 'axios';
-import useNavigate from 'react-router-dom';
 
 function OrderPage() {
     // const dispatch = useDispatch();
@@ -187,22 +186,6 @@ function OrderPage() {
 
             // 🔥 CHUYỂN TRANG – CHUẨN VNPay / Shopee
             window.location.href = paymentUrl;
-              const navigate = useNavigate();
-              useEffect(() => {
-                const params = new URLSearchParams(window.location.search);
-                const payment = params.get('payment');
-            
-                if (payment === 'success') {
-                  localStorage.removeItem("cartItemsStorage");
-                  toast.success('Thanh toán thành công');
-                  navigate("/order");
-                }
-            
-                if (payment === 'fail') {
-                  toast.error('Thanh toán thất bại ❌');
-                  navigate("/order");
-                }
-              }, []);
         } catch (err) {
             console.error('PAY ERROR:', err);
             alert('Có lỗi khi thanh toán');
@@ -336,4 +319,5 @@ function OrderPage() {
 }
 
 export default OrderPage;
+
 
