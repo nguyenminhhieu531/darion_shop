@@ -4,7 +4,7 @@ import { RouterProvider } from 'react-router-dom'
 import router from './routers/routers'
 import toast, { Toaster } from 'react-hot-toast'
 import { useEffect } from 'react'
-
+const navigate = useNavigate();
 
 function App() {
 
@@ -15,12 +15,12 @@ function App() {
     if (payment === 'success') {
       localStorage.removeItem("cartItemsStorage");
       toast.success('Thanh toán thành công');
-      window.history.replaceState({}, '', '/order');
+      navigate("/order");
     }
 
     if (payment === 'fail') {
       toast.error('Thanh toán thất bại ❌');
-      window.history.replaceState({}, '', '/order');
+      navigate("/order");
     }
   }, []);
   return (
