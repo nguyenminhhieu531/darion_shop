@@ -302,7 +302,7 @@ function OrderPage() {
                                     <button disabled={cartItems.length === 0} onClick={handlePay} type="submit"
                                         className={`w-full uppercase h-[55px] bg-black text-white font-semibold text-sm px-4 flex-1 rounded-lg ${cartItems.length === 0 ? "bg-gray" : "hover:bg-white border hover:border-black hover:text-black transition-all"}`}
                                     >
-                                        THANH TOÁN
+                                        ORDER
                                     </button>
                                 </ul>
                             </div>
@@ -315,4 +315,5 @@ function OrderPage() {
 }
 
 export default OrderPage;
+
 
