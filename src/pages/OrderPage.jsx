@@ -4,6 +4,7 @@ import emailjs from 'emailjs-com';
 import toast from 'react-hot-toast';
 import { Link } from 'react-router-dom';
 import clearCart from '../store/features/cartSlice';
+import axios from 'axios';
 
 function OrderPage() {
     // const dispatch = useDispatch();
@@ -87,8 +88,50 @@ function OrderPage() {
 
 
 
-    const handlePayNow = async () => {
+    // const handlePayNow = async () => {
+    //     if (!validateForm()) return;
+
+
+    //     // Tạo nội dung email
+    //     const emailData = {
+    //         name: `${formData.firstName} ${formData.lastName}`,
+    //         email: formData.email,
+    //         to_email: formData.email,
+    //         address: formData.address,
+    //         phone: formData.phone,
+    //         postalCode: formData.postalCode || 'N/A',
+    //         total: cartItems.reduce(
+    //             (accumulator, currentValue) => accumulator + currentValue.price * currentValue.quantity,
+    //             0
+    //         ) + "$",
+    //         cartItems: cartItems
+    //             .map((item) => `- ${item.title} x${item.quantity} ($${item.price})`)
+    //             .join('\n'),
+    //         delivery: formData.ship ? "Ship COD" : formData.store ? "Lấy sản phẩm tại cửa hàng" : "",
+    //     }
+
+    //     try {
+    //         await emailjs.send(
+    //             'service_5fal3in', // ID của service email
+    //             'template_u1sr20x', // ID của template email
+    //             emailData,  // Dữ liệu email
+    //             '-ukl6JeuBmXsF5uKL' // User ID của bạn trong EmailJS
+    //         );
+
+    //         toast.success('Đặt hàng thành công');
+    //     } catch (error) {
+    //         console.log(error);
+    //         toast.error('Đặt hàng thất bại! Mời bạn mua hàng lại!');
+    //     }
+    // };
+
+    if (!cartItems) {
+        return <></>
+    }
+
+    const handlePay = async () => {
         if (!validateForm()) return;
+
 
         // Tạo nội dung email
         const emailData = {
@@ -115,16 +158,41 @@ function OrderPage() {
                 emailData,  // Dữ liệu email
                 '-ukl6JeuBmXsF5uKL' // User ID của bạn trong EmailJS
             );
-            toast.success('Đặt hàng thành công');
+
         } catch (error) {
             console.log(error);
             toast.error('Đặt hàng thất bại! Mời bạn mua hàng lại!');
         }
+
+
+        try {
+            const res = await axios.post(
+                'http://localhost:8888/order/create_payment_url',
+                {
+                    amount: 100000,
+                    language: 'vn',
+                    bankCode: '' // ✅ QUAN TRỌNG: gửi rỗng, đừng để undefined
+                }
+            );
+
+            const { paymentUrl } = res.data;
+            console.log(paymentUrl);
+
+
+            if (!paymentUrl) {
+                alert('Không tạo được link thanh toán');
+                return;
+            }
+
+            // 🔥 CHUYỂN TRANG – CHUẨN VNPay / Shopee
+            window.location.href = paymentUrl;
+
+        } catch (err) {
+            console.error('PAY ERROR:', err);
+            alert('Có lỗi khi thanh toán');
+        }
     };
 
-    if (!cartItems) {
-        return <></>
-    }
 
     return (
         <main>
@@ -204,17 +272,17 @@ function OrderPage() {
                                         />
                                         {errors.phone && <p className="text-red-500 text-sm mt-1">{errors.phone}</p>}
                                     </div>
-                                    <button
+                                    {/* <button
                                         disabled={cartItems.length === 0}
                                         onClick={handlePayNow}
                                         type="submit"
                                         className={`w-full uppercase h-[55px] bg-black text-white font-semibold text-sm px-4 flex-1 rounded-lg ${cartItems.length === 0 ? "bg-gray" : "hover:bg-white border hover:border-black hover:text-black transition-all"}`}
                                     >
                                         ORDER NOW
-                                    </button>
-                                    <div className="text-center">
+                                    </button> */}
+                                    {/* <div className="text-center">
                                         <p>Back to <Link to={"/"} className='cart_info'>Home</Link></p>
-                                    </div>
+                                    </div> */}
                                 </div>
                             </div>
                             <div className="lg:p-10 mt-10 lg:mt-0">
@@ -234,14 +302,20 @@ function OrderPage() {
                                             ${cartItems.reduce((acc, item) => acc + item.price * item.quantity, 0)}
                                         </span>
                                     </li>
-
+                                </ul>
+                                <ul className="lg:p-10 mt-10 lg:mt-0">
+                                    <button disabled={cartItems.length === 0} onClick={handlePay} type="submit"
+                                        className={`w-full uppercase h-[55px] bg-black text-white font-semibold text-sm px-4 flex-1 rounded-lg ${cartItems.length === 0 ? "bg-gray" : "hover:bg-white border hover:border-black hover:text-black transition-all"}`}
+                                    >
+                                        THANH TOÁN
+                                    </button>
                                 </ul>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
-        </main >
+        </main>
     );
 }
 
